@@ -178,7 +178,7 @@ class SceneVC: UIViewController, ARSessionDelegate  {
         sceneView.scene = SCNScene()
         sceneView.autoenablesDefaultLighting = true
     }
-    
+       
     
     func loadNodeObject() {
         // get access to scene from scene assets and parse for the lamp model
