@@ -25,6 +25,9 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mV-QA-BwD">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="christmas" translatesAutoresizingMaskIntoConstraints="NO" id="SZ5-LF-7zM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29t-Z0-xJj">
                                 <rect key="frame" x="275" y="551" width="68" height="68"/>
                                 <color key="backgroundColor" red="1" green="0.089066493402795599" blue="0.081508871455997056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -36,6 +39,9 @@
                                 <state key="normal" title="2">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnLeftAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="4nE-Ob-Xlm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1NE-oP-bLR">
                                 <rect key="frame" x="32" y="551" width="68" height="68"/>
@@ -72,24 +78,29 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="SZ5-LF-7zM" firstAttribute="top" secondItem="K6J-dI-X1c" secondAttribute="top" id="1No-sh-acp"/>
                             <constraint firstItem="9mV-QA-BwD" firstAttribute="bottom" secondItem="s2l-bs-1OP" secondAttribute="bottom" id="56I-jq-U06"/>
+                            <constraint firstItem="SZ5-LF-7zM" firstAttribute="bottom" secondItem="s2l-bs-1OP" secondAttribute="bottom" id="BMz-sf-M6F"/>
                             <constraint firstItem="9mV-QA-BwD" firstAttribute="leading" secondItem="s2l-bs-1OP" secondAttribute="leading" id="Cr4-nD-IIc"/>
                             <constraint firstItem="s2l-bs-1OP" firstAttribute="bottom" secondItem="29t-Z0-xJj" secondAttribute="bottom" constant="48" id="GaK-Pr-hfA"/>
                             <constraint firstItem="XGA-jX-nEa" firstAttribute="centerY" secondItem="K6J-dI-X1c" secondAttribute="centerY" id="JOl-u8-yhP"/>
                             <constraint firstItem="wxb-RO-yf0" firstAttribute="top" secondItem="s2l-bs-1OP" secondAttribute="top" id="REF-pD-C8S"/>
                             <constraint firstItem="1NE-oP-bLR" firstAttribute="leading" secondItem="s2l-bs-1OP" secondAttribute="leading" constant="32" id="RgQ-Wd-EF8"/>
+                            <constraint firstItem="SZ5-LF-7zM" firstAttribute="trailing" secondItem="s2l-bs-1OP" secondAttribute="trailing" id="SDU-4B-9TV"/>
                             <constraint firstItem="s2l-bs-1OP" firstAttribute="trailing" secondItem="29t-Z0-xJj" secondAttribute="trailing" constant="32" id="XBg-IC-rpG"/>
                             <constraint firstItem="s2l-bs-1OP" firstAttribute="trailing" secondItem="wxb-RO-yf0" secondAttribute="trailing" constant="18" id="cwm-Qa-ZT6"/>
                             <constraint firstItem="XGA-jX-nEa" firstAttribute="centerX" secondItem="K6J-dI-X1c" secondAttribute="centerX" id="izI-8h-KZT"/>
                             <constraint firstItem="9mV-QA-BwD" firstAttribute="trailing" secondItem="s2l-bs-1OP" secondAttribute="trailing" id="lzB-cH-feN"/>
                             <constraint firstItem="s2l-bs-1OP" firstAttribute="bottom" secondItem="1NE-oP-bLR" secondAttribute="bottom" constant="48" id="rx1-cn-zdn"/>
                             <constraint firstItem="9mV-QA-BwD" firstAttribute="top" secondItem="K6J-dI-X1c" secondAttribute="top" id="tML-7P-COZ"/>
+                            <constraint firstItem="SZ5-LF-7zM" firstAttribute="leading" secondItem="s2l-bs-1OP" secondAttribute="leading" id="tPy-ws-obm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="s2l-bs-1OP"/>
                     </view>
                     <connections>
                         <outlet property="btnLeft" destination="29t-Z0-xJj" id="U7Z-Yh-PnK"/>
                         <outlet property="btnRight" destination="1NE-oP-bLR" id="Vo4-EE-6av"/>
+                        <outlet property="imgChristmas" destination="SZ5-LF-7zM" id="COu-rj-f7M"/>
                         <outlet property="lblSessionStatus" destination="XGA-jX-nEa" id="iSv-gO-rIM"/>
                         <outlet property="sceneView" destination="9mV-QA-BwD" id="pKk-Gg-p6E"/>
                     </connections>
@@ -99,4 +110,7 @@
             <point key="canvasLocation" x="36" y="32.833583208395808"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="christmas" width="2400" height="3395"/>
+    </resources>
 </document>

@@ -17,6 +17,7 @@ class SceneVC: UIViewController, ARSessionDelegate  {
     @IBOutlet weak var btnLeft: UIButton!
     @IBOutlet weak var btnRight: UIButton!
     @IBOutlet weak var lblSessionStatus: UILabel!
+    @IBOutlet weak var imgChristmas: UIImageView!
     
     let planeIdentifiers = [UUID]()
     var anchors = [ARAnchor]()
@@ -32,6 +33,7 @@ class SceneVC: UIViewController, ARSessionDelegate  {
     var player: AVAudioPlayer?
     var myNodes = [SCNNode]()
     var newNode = SCNNode()
+    var isShown = false
     
     
     /// Use average of recent virtual object distances to avoid rapid changes in object scale.
@@ -163,6 +165,10 @@ class SceneVC: UIViewController, ARSessionDelegate  {
             node.addChildNode(childNode as SCNNode)
         }
         sceneView.scene.rootNode.addChildNode(node)
+        
+//        let action = SCNAction.rotateBy(x: 0, y: CGFloat(-Double.pi/2), z: 0, duration: 1)
+//        node.runAction(action, forKey: "rotate")
+        
         node.name = "spider"
         node.position = position
         myNodes.append(node)
@@ -187,6 +193,21 @@ class SceneVC: UIViewController, ARSessionDelegate  {
         sceneView.scene = tempScene
     }
  
+    @IBAction func btnLeftAction(_ sender: Any) {
+        if !isShown {
+            UIView.animate(withDuration: 0.5) {
+                self.imgChristmas.alpha = 1
+                self.isShown = true
+            }
+        }
+        else {
+            UIView.animate(withDuration: 0.5) {
+                self.imgChristmas.alpha = 0
+                self.isShown = false
+            }
+        }
+        
+    }
     
     @IBAction func bvtnPlayLeftAction(_ sender: Any) {
         self.playSound()
