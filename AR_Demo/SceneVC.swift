@@ -34,15 +34,9 @@ class SceneVC: UIViewController, ARSessionDelegate  {
     var myNodes = [SCNNode]()
     var newNode = SCNNode()
     var isShown = false
+    var zDepth :Float = 0.0
+    var selectedNode: SCNNode?
     
-    
-    /// Use average of recent virtual object distances to avoid rapid changes in object scale.
-    private var recentVirtualObjectDistances = [Float]()
-    
-    /// Resets the objects poisition smoothing.
-    func reset() {
-        recentVirtualObjectDistances.removeAll()
-    }
     
     var planePosition: SCNVector3! = SCNVector3(x:0,y:0,z:-1)
     override func viewDidLoad() {
@@ -111,9 +105,11 @@ class SceneVC: UIViewController, ARSessionDelegate  {
                     
                     let newLocation = SCNVector3Make(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
                     let node = createObject(position: newLocation)
-                    
+                    if selectedNode == nil {
+                        selectedNode = node
+                    }
+                    zDepth = sceneView.projectPoint(node.position).z
                 }
-                
             }
             else {
                 print("sound a girdi")
@@ -123,6 +119,17 @@ class SceneVC: UIViewController, ARSessionDelegate  {
         }
     
     }
+    
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        guard selectedNode != nil else { return }
+//        let touch = touches.first!
+//        let touchPoint = touch.location(in: sceneView)
+//        selectedNode!.position = sceneView.unprojectPoint(
+//            SCNVector3(x: Float(touchPoint.x),
+//                       y: Float(touchPoint.y),
+//                       z: zDepth))
+//    }
+
     
     
     func playSound() {
@@ -294,7 +301,7 @@ extension SceneVC: ARSCNViewDelegate {
         planeNode.eulerAngles.x = -.pi / 2
         planeNode.name = "plane"
         // Make the plane visualization semitransparent to clearly show real-world placement.
-        planeNode.opacity = 0.25
+        planeNode.opacity = 0.1
         
         /*
          Add the plane visualization to the ARKit-managed node so that it tracks

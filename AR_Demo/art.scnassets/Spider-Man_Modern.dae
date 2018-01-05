@@ -4,8 +4,8 @@
   <contributor>
    <authoring_tool>SceneKit Collada Exporter v1.0</authoring_tool>
   </contributor>
-  <created>2017-12-19T13:56:54Z</created>
-  <modified>2017-12-19T13:56:54Z</modified>
+  <created>2018-01-05T07:30:45Z</created>
+  <modified>2018-01-05T07:30:45Z</modified>
   <unit meter="1.000000"/>
   <up_axis>Y_UP</up_axis>
  </asset>
@@ -161,7 +161,7 @@
  <library_visual_scenes>
   <visual_scene id="scene10">
    <node id="VisualSceneNode1" name="Armature" sid="SID_1" type="JOINT">
-    <matrix>0.4999999 4.371143e-08 -4.371133e-08 0 4.371138e-08 -5.960463e-07 0.4999999 0 4.371138e-08 -0.4999999 -5.960463e-07 0 0 0 0 1 </matrix>
+    <matrix>0.25 2.185572e-08 -2.185567e-08 0 2.185569e-08 -2.384186e-07 0.25 0 2.185569e-08 -0.25 -2.384186e-07 0 0 0 0 1 </matrix>
     <node id="VisualSceneNode2" name="root" sid="SID_2" type="JOINT">
      <matrix>0 0 -1 0 0 1 0 0 1 0 0 0 0 0 0 1 </matrix>
      <node id="VisualSceneNode3" name="g_r_hip_offset" sid="SID_3" type="JOINT">
